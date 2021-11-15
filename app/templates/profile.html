@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container w-25 mt-4">
+        <form method="POST">
+            <div class="form-group">
+                <label for="user_name">Name: </label>
+                {% if profile.name %}
+                    <input class="form-control" type="text" value="{{profile.name}}" name="name" id="user_name" required>
+                {% else %}
+                    <input class="form-control" type="text" name="name" id="user_name" required>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender: </label>
+                {% if profile.gender=="male"%}
+                    <input type="radio" value="male" name="gender" id="gender_male" checked>
+                {% else  %}
+                    <input type="radio" value="male" name="gender" id="gender_male" >
+                {% endif %}
+                <label for="gender_male">Male</label>
+                {% if profile.gender=="female" %}
+                    <input type="radio" value="female" name="gender" id="gender_female" checked>
+                {% else %}
+                    <input type="radio" value="female" name="gender" id="gender_female">
+                {% endif %}
+                <label for="gender_female">Female</label>
+            </div>
+            <div class="form-group">
+                <label for="user_dob">DOB: </label>
+                {% if profile.dob %}
+                    <input class="form-control" type="date" value="{{ profile.dob }}" name="dob" id="user_dob" required>  
+                {% else %}
+                    <input class="form-control" type="date" name="dob" id="user_dob" required>
+                {% endif %}
+                
+            </div>
+            <button class="btn btn-success" type="submit">Update Profile</button>
+            <a class="btn btn-info" href="{{url_for('main.logout')}}">Logout</a>
+        </form>
+
+    </div>
+    <p>
+        
+    </p>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <h2>Welcom to Demo App</h2>
+    <a class="btn btn-success" href="{{url_for('auth.login')}}">Login</a>
+    <a class="btn btn-secondary" href="{{url_for('auth.register')}}">Register</a>
+</div>
+{% endblock body %}
